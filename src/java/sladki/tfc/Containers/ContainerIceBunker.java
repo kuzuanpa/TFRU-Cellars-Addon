@@ -12,10 +12,10 @@ public class ContainerIceBunker extends Container {
 	private TEIceBunker tileEntity;
 	
 	public ContainerIceBunker(InventoryPlayer player, TEIceBunker tileEntity) {
-		addSlotToContainer(new SlotIceBunker(tileEntity, 0, 71, 25));
-		addSlotToContainer(new SlotIceBunker(tileEntity, 1, 89, 25));
-		addSlotToContainer(new SlotIceBunker(tileEntity, 2, 71, 43));
-		addSlotToContainer(new SlotIceBunker(tileEntity, 3, 89, 43));
+		addSlotToContainer(new Slot(tileEntity, 0, 71, 25));
+		addSlotToContainer(new Slot(tileEntity, 1, 89, 25));
+		addSlotToContainer(new Slot(tileEntity, 2, 71, 43));
+		addSlotToContainer(new Slot(tileEntity, 3, 89, 43));
 		
 		bindPlayerInventory(player);
 	}

@@ -15,14 +15,5 @@ public class SlotIceBunker extends Slot {
 	public SlotIceBunker(IInventory inventory, int i, int j, int k) {
 		super(inventory, i, j, k);
 	}
-	
-	@Override
-	public boolean isItemValid(ItemStack itemStack) {
-		if(Block.getBlockFromItem(itemStack.getItem()) == ModManager.IceBlock
-		|| Block.getBlockFromItem(itemStack.getItem()) == Blocks.snow) {
-			
-			return true;
-		}
-		return false;
-	}
+
 }

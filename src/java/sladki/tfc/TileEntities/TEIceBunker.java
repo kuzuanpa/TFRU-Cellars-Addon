@@ -7,6 +7,7 @@ import com.bioxx.tfc.api.Food;
 import com.bioxx.tfc.api.TFCBlocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
@@ -110,9 +111,14 @@ public class TEIceBunker extends TileEntity implements IInventory {
 			if(coolantAmount <= 0) {
 				for(int slot = 3; slot >= 0; slot--) {
 					if(inventory[slot] != null) {
-						if(Block.getBlockFromItem(inventory[slot].getItem()) == ModManager.IceBlock) {
+						Block block = Block.getBlockFromItem(inventory[slot].getItem());
+						if(block == null)continue;
+						if(block.getMaterial().equals(Material.ice)) {
 							coolantAmount = coolantAmount + 120;
-						} else if(Block.getBlockFromItem(inventory[slot].getItem()) == Blocks.snow) {
+						}
+						else if(block.getMaterial().equals(Material.packedIce)) {
+							coolantAmount = coolantAmount + 80;
+						} else if(block.getMaterial().equals(Material.snow)) {
 							coolantAmount = coolantAmount + 40;
 						}
 						lastUpdate = TFC_Time.getTotalDays();
